@@ -42,6 +42,11 @@ fn main() {
         Crate::new("glob").owner("rust-lang"),
         Crate::new("log").owner("rust-lang").extern_lib("libc", builddir),
         Crate::new("rand").owner("rust-lang").extern_lib("libc", builddir),
+        Crate::new("memchr").owner("BurntSushi").repo("rust-memchr")
+              .extern_lib("libc", builddir),
+        Crate::new("aho_corasick").owner("BurntSushi").repo("aho-corasick"),
+        Crate::new("regex_syntax").owner("rust-lang").repo("regex")
+              .filename("regex-syntax/src/lib.rs"),
         Crate::new("regex").owner("rust-lang"),
         Crate::new("rustc_serialize").repo("rustc-serialize").owner("rust-lang"),
         Crate::new("semver").owner("rust-lang"),
@@ -83,6 +88,9 @@ fn main() {
         Crate::new("encoding_index_tradchinese")
               .repo("rust-encoding").owner("lifthrasiir")
               .filename("src/index/tradchinese/lib.rs"),
+        Crate::new("encoding_types")
+              .repo("rust-encoding").owner("lifthrasiir")
+              .filename("src/types/lib.rs"),
         Crate::new("encoding").repo("rust-encoding").owner("lifthrasiir"),
 
         Crate::new("miniz_sys").repo("flate2-rs").owner("alexchichton")
@@ -91,7 +99,15 @@ fn main() {
         Crate::new("flate2").repo("flate2-rs").owner("alexcrichton")
               .extern_lib("libc", builddir),
 
+        Crate::new("num").owner("rust-lang"),
         Crate::new("hamcrest").repo("hamcrest-rust").owner("carllerche"),
+
+        Crate::new("winapi").repo("winapi-rs").owner("retep998"),
+        Crate::new("kernel32").repo("winapi-rs").owner("retep998")
+              .filename("lib/kernel32-sys/src/lib.rs")
+              .extern_lib("libc", builddir),
+        Crate::new("filetime").owner("alexcrichton")
+              .extern_lib("libc", builddir),
         Crate::new("tar").repo("tar-rs").owner("alexcrichton")
               .feature("nightly")
               .extern_lib("libc", builddir),
@@ -105,7 +121,8 @@ fn main() {
         Crate::new("civet_sys").repo("rust-civet").owner("wycats")
               .filename("civet-sys/lib.rs"),
         Crate::new("civet").repo("rust-civet").owner("wycats")
-              .extern_lib("libc", builddir),
+              .extern_lib("libc", builddir)
+              .feature("catch_panic"),
 
         Crate::new("libssh2_sys").repo("ssh2-rs").owner("alexcrichton")
               .filename("libssh2-sys/lib.rs")
